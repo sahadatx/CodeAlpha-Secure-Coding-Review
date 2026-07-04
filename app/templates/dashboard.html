@@ -8,42 +8,34 @@ Dashboard
 
 <div class="card shadow">
 
-<div class="card-body">
+    <div class="card-body">
 
-<h2>
+        <h2>Dashboard</h2>
 
-Dashboard
+        <hr>
 
-</h2>
+        <h4>
+            Welcome,
+            <span class="text-primary">
+                {{ username }}
+            </span>
+        </h4>
 
-<hr>
+        <p>
+            Authentication Successful.
+        </p>
 
-<h4>
+        <hr>
 
-Welcome,
+        <a href="/search" class="btn btn-primary">
+            🔍 Search Users
+        </a>
 
-<span class="text-primary">
+        <a href="/logout" class="btn btn-danger">
+            Logout
+        </a>
 
-{{ username }}
-
-</span>
-
-</h4>
-
-<p>
-
-Authentication Successful.
-
-</p>
-
-<a href="/logout"
-class="btn btn-danger">
-
-Logout
-
-</a>
-
-</div>
+    </div>
 
 </div>
 
