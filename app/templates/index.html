@@ -1,64 +1,174 @@
 {% extends "base.html" %}
 
 {% block title %}
-
 Home
-
 {% endblock %}
 
 {% block content %}
 
-<div class="card shadow">
+<div class="row justify-content-center">
 
-<div class="card-body">
+    <div class="col-lg-10">
 
-<h2>
+        <div class="card shadow-lg">
 
-Welcome
+            <div class="card-body text-center p-5">
 
-</h2>
+                <i class="bi bi-shield-lock-fill display-1 text-primary"></i>
 
-<p>
+                <h1 class="fw-bold mt-4">
 
-This vulnerable application is built for the
+                    Secure Coding Review
 
-<strong>
+                </h1>
 
-CodeAlpha Cyber Security Internship.
+                <p class="lead text-muted mt-3">
 
-</strong>
+                    A Flask-based web application developed to demonstrate
+                    secure code review, vulnerability assessment,
+                    static analysis, and secure code remediation.
 
-</p>
+                </p>
 
-<p>
+                <hr class="my-4">
 
-Later we will perform
+                <div class="row g-4 mt-2">
 
-Manual Review
+                    <div class="col-md-3">
 
-Bandit Scan
+                        <div class="card h-100 border-0 bg-light">
 
-Semgrep Scan
+                            <div class="card-body">
 
-OWASP Analysis
+                                <i class="bi bi-search display-5 text-primary"></i>
 
-</p>
+                                <h5 class="mt-3">
 
-<hr>
+                                    Manual Review
 
-<a href="/register" class="btn btn-primary">
+                                </h5>
 
-Create Account
+                                <p class="text-muted">
 
-</a>
+                                    Identify common security vulnerabilities through manual inspection.
 
-<a href="/login" class="btn btn-success">
+                                </p>
 
-Login
+                            </div>
 
-</a>
+                        </div>
 
-</div>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="card h-100 border-0 bg-light">
+
+                            <div class="card-body">
+
+                                <i class="bi bi-bug-fill display-5 text-danger"></i>
+
+                                <h5 class="mt-3">
+
+                                    Bandit
+
+                                </h5>
+
+                                <p class="text-muted">
+
+                                    Static analysis for identifying Python security issues.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="card h-100 border-0 bg-light">
+
+                            <div class="card-body">
+
+                                <i class="bi bi-shield-check display-5 text-success"></i>
+
+                                <h5 class="mt-3">
+
+                                    Semgrep
+
+                                </h5>
+
+                                <p class="text-muted">
+
+                                    Detect security vulnerabilities using semantic code analysis.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="card h-100 border-0 bg-light">
+
+                            <div class="card-body">
+
+                                <i class="bi bi-check2-circle display-5 text-warning"></i>
+
+                                <h5 class="mt-3">
+
+                                    Remediation
+
+                                </h5>
+
+                                <p class="text-muted">
+
+                                    Apply secure coding best practices and verify fixes.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="mt-5">
+
+                    <a
+                        href="/register"
+                        class="btn btn-primary btn-lg me-3">
+
+                        <i class="bi bi-person-plus-fill"></i>
+
+                        Register
+
+                    </a>
+
+                    <a
+                        href="/login"
+                        class="btn btn-success btn-lg">
+
+                        <i class="bi bi-box-arrow-in-right"></i>
+
+                        Login
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 

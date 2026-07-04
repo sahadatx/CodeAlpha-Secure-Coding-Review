@@ -6,39 +6,167 @@ Admin Panel
 
 {% block content %}
 
-<div class="card shadow">
+<div class="row">
 
-    <div class="card-body">
+    <div class="col-lg-12">
 
-        <h2>Admin Panel</h2>
+        <div class="card shadow-lg mb-4">
 
-        <hr>
+            <div class="card-body">
 
-        <h4>
-            Welcome,
-            <span class="text-primary">
-                {{ username }}
-            </span>
-        </h4>
+                <h2>
 
-        <p>
-            Role:
-            <span class="badge bg-danger">
-                {{ role }}
-            </span>
-        </p>
+                    <i class="bi bi-shield-lock-fill text-danger"></i>
 
-        <div class="alert alert-success">
+                    Admin Panel
 
-            <strong>Access Granted</strong>
+                </h2>
 
-            <br>
+                <hr>
 
-            You are authorized to access the Admin Panel.
+                <h4>
+
+                    Welcome,
+
+                    <span class="text-primary">
+
+                        {{ username }}
+
+                    </span>
+
+                </h4>
+
+                <p>
+
+                    Current Role
+
+                    <span class="badge bg-danger ms-2">
+
+                        {{ role }}
+
+                    </span>
+
+                </p>
+
+                <div class="alert alert-success">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    <strong>
+
+                        Access Granted
+
+                    </strong>
+
+                    <br>
+
+                    You have successfully passed Role-Based Access Control (RBAC)
+                    verification and are authorized to access the administrative dashboard.
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
+
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+
+        <div class="card shadow-sm h-100">
+
+            <div class="card-body text-center">
+
+                <i class="bi bi-people-fill display-4 text-primary"></i>
+
+                <h4 class="mt-3">
+
+                    User Management
+
+                </h4>
+
+                <p class="text-muted">
+
+                    Manage registered user accounts securely.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow-sm h-100">
+
+            <div class="card-body text-center">
+
+                <i class="bi bi-shield-check display-4 text-success"></i>
+
+                <h4 class="mt-3">
+
+                    Security Status
+
+                </h4>
+
+                <p class="text-muted">
+
+                    Password hashing, RBAC, SQL Injection protection,
+                    and secure file upload are enabled.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow-sm h-100">
+
+            <div class="card-body text-center">
+
+                <i class="bi bi-activity display-4 text-warning"></i>
+
+                <h4 class="mt-3">
+
+                    System Monitoring
+
+                </h4>
+
+                <p class="text-muted">
+
+                    Monitor application security and administrative activity.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="text-center mt-5">
+
+    <a
+        href="/dashboard"
+        class="btn btn-primary btn-lg">
+
+        <i class="bi bi-speedometer2"></i>
+
+        Back to Dashboard
+
+    </a>
 
 </div>
 

@@ -4,7 +4,8 @@ from flask import (
     session,
     redirect,
     url_for,
-    flash
+    flash,
+    render_template
 )
 
 
@@ -55,13 +56,13 @@ def admin_required(func):
         # User is logged in but not an admin
         if session.get("role") != "admin":
 
-            flash(
-                "Access denied. Admin only.",
-                "danger"
-            )
-
-            return redirect(
-                url_for("main.dashboard")
+            return (
+                render_template(
+                    "403.html",
+                    username=session.get("username"),
+                    role=session.get("role")
+                ),
+                403
             )
 
         return func(*args, **kwargs)

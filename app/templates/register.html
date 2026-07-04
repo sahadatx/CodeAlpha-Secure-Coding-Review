@@ -1,56 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
 {% block content %}
 
 <div class="row justify-content-center">
 
-<div class="col-md-6">
+    <div class="col-md-6 col-lg-5">
 
-<div class="card shadow">
+        <div class="card shadow-lg border-0 mt-5">
 
-<div class="card-header">
+            <div class="card-body p-5">
 
-<h3>Register</h3>
+                <div class="text-center mb-4">
 
-</div>
+                    <h2>📝 Create Account</h2>
 
-<div class="card-body">
+                    <p class="text-muted">
+                        Register to access the Secure Coding Review application.
+                    </p>
 
-<form method="POST">
+                </div>
 
-<div class="mb-3">
+                <form method="POST">
 
-<label>Username</label>
+                    <div class="mb-3">
 
-<input
-class="form-control"
-type="text"
-name="username">
+                        <label class="form-label">
+                            Username
+                        </label>
 
-</div>
+                        <input
+                            class="form-control"
+                            type="text"
+                            name="username"
+                            placeholder="Enter your username"
+                            required>
 
-<div class="mb-3">
+                    </div>
 
-<label>Password</label>
+                    <div class="mb-4">
 
-<input
-class="form-control"
-type="password"
-name="password">
+                        <label class="form-label">
+                            Password
+                        </label>
 
-</div>
+                        <input
+                            class="form-control"
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required>
 
-<button class="btn btn-primary">
+                    </div>
 
-Register
+                    <div class="d-grid">
 
-</button>
+                        <button
+                            class="btn btn-primary btn-lg"
+                            type="submit">
 
-</form>
+                            Register
 
-</div>
+                        </button>
 
-</div>
+                    </div>
 
-</div>
+                </form>
+
+                <hr>
+
+                <p class="text-center mb-0">
+
+                    Already have an account?
+
+                    <a href="{{ url_for('auth.login') }}">
+                        Login
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 

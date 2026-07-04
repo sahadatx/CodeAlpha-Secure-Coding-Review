@@ -1,86 +1,139 @@
 {% extends "base.html" %}
 
 {% block title %}
-Search
+User Search
 {% endblock %}
 
 {% block content %}
 
-<div class="card shadow">
+<div class="row justify-content-center">
 
-<div class="card-header">
+    <div class="col-lg-10">
 
-<h3>User Search</h3>
+        <div class="card shadow-lg">
 
-</div>
+            <div class="card-body">
 
-<div class="card-body">
+                <div class="text-center mb-4">
 
-<form method="POST">
+                    <i class="bi bi-search display-4 text-primary"></i>
 
-<div class="mb-3">
+                    <h2 class="mt-3 fw-bold">
 
-<label>Search Username</label>
+                        User Search
 
-<input
-class="form-control"
-type="text"
-name="search">
+                    </h2>
 
-</div>
+                    <p class="text-muted">
 
-<button
-class="btn btn-primary">
+                        Search registered users securely using parameterized queries.
 
-Search
+                    </p>
 
-</button>
+                </div>
 
-</form>
+                <form method="POST">
 
-<br>
+                    <div class="input-group mb-4">
 
-{% if results %}
+                        <span class="input-group-text">
 
-<table class="table table-bordered">
+                            <i class="bi bi-person-fill"></i>
 
-<thead>
+                        </span>
 
-<tr>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="search"
+                            placeholder="Enter username..."
+                            required>
 
-<th>ID</th>
+                        <button
+                            class="btn btn-primary"
+                            type="submit">
 
-<th>Username</th>
+                            <i class="bi bi-search"></i>
 
-<th>Password</th>
+                            Search
 
-</tr>
+                        </button>
 
-</thead>
+                    </div>
 
-<tbody>
+                </form>
 
-{% for user in results %}
+                {% if results %}
 
-<tr>
+                <div class="table-responsive">
 
-<td>{{ user.id }}</td>
+                    <table class="table table-hover align-middle">
 
-<td>{{ user.username }}</td>
+                        <thead class="table-dark">
 
-<td>{{ user.password }}</td>
+                            <tr>
 
-</tr>
+                                <th>ID</th>
 
-{% endfor %}
+                                <th>Username</th>
 
-</tbody>
+                                <th>Role</th>
 
-</table>
+                            </tr>
 
-{% endif %}
+                        </thead>
 
-</div>
+                        <tbody>
+
+                            {% for user in results %}
+
+                            <tr>
+
+                                <td>{{ user.id }}</td>
+
+                                <td>{{ user.username }}</td>
+
+                                <td>
+
+                                    <span class="badge bg-primary">
+
+                                        {{ user.role }}
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                {% else %}
+
+                    {% if request.method == "POST" %}
+
+                    <div class="alert alert-warning">
+
+                        <i class="bi bi-exclamation-circle"></i>
+
+                        No matching users found.
+
+                    </div>
+
+                    {% endif %}
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
