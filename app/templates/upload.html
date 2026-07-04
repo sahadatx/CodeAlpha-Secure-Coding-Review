@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+Upload File
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-header">
+        <h3>Upload File</h3>
+    </div>
+
+    <div class="card-body">
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <div class="mb-3">
+
+                <label>Select File</label>
+
+                <input
+                    type="file"
+                    name="file"
+                    class="form-control">
+
+            </div>
+
+            <button class="btn btn-primary">
+
+                Upload
+
+            </button>
+
+        </form>
+
+        {% if filename %}
+
+        <hr>
+
+        <div class="alert alert-success">
+
+            Uploaded File:
+
+            <strong>{{ filename }}</strong>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endblock %}
