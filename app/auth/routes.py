@@ -28,10 +28,10 @@ def register():
 
     if request.method == "POST":
 
-        username = request.form["username"]
+        username = request.form["username"].strip()
         password = request.form["password"]
 
-        # Secure Password Hashing
+        # Hash the password before storing it
         hashed_password = generate_password_hash(password)
 
         conn = get_connection()
@@ -45,7 +45,7 @@ def register():
         conn.commit()
         conn.close()
 
-        flash("Registration Successful. Please login.", "success")
+        flash("Registration successful. Please login.", "success")
 
         return redirect(url_for("auth.login"))
 
@@ -60,15 +60,13 @@ def login():
 
     if request.method == "POST":
 
-        username = request.form["username"]
+        username = request.form["username"].strip()
         password = request.form["password"]
 
         conn = get_connection()
         cursor = conn.cursor()
 
-        # ------------------------------------------
-        # Secure Query (SQL Injection Prevented)
-        # ------------------------------------------
+        # Parameterized query to prevent SQL Injection
         cursor.execute(
             "SELECT * FROM users WHERE username = ?",
             (username,)
@@ -82,11 +80,11 @@ def login():
 
             session["username"] = user["username"]
 
-            flash("Login Successful!", "success")
+            flash("Login successful!", "success")
 
             return redirect(url_for("main.dashboard"))
 
-        flash("Invalid Username or Password.", "danger")
+        flash("Invalid username or password.", "danger")
 
     return render_template("login.html")
 
@@ -100,6 +98,6 @@ def logout():
 
     session.clear()
 
-    flash("Logged Out Successfully.", "success")
+    flash("Logged out successfully.", "success")
 
     return redirect(url_for("auth.login"))
