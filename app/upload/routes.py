@@ -22,8 +22,8 @@ upload_bp = Blueprint("upload", __name__)
 def allowed_file(filename):
 
     return (
-        "." in filename
-        and filename.rsplit(".", 1)[1].lower()
+        "." in filename and
+        filename.rsplit(".", 1)[1].lower()
         in current_app.config["ALLOWED_EXTENSIONS"]
     )
 
@@ -41,42 +41,37 @@ def upload():
 
         uploaded_file = request.files.get("file")
 
-        # No file selected
         if uploaded_file is None:
 
             flash("No file selected.", "danger")
-
             return render_template(
                 "upload.html",
                 filename=filename
             )
 
-        # Empty filename
         if uploaded_file.filename == "":
 
             flash("Please choose a file.", "warning")
-
             return render_template(
                 "upload.html",
                 filename=filename
             )
 
-        # Validate extension
         if not allowed_file(uploaded_file.filename):
 
-            flash("Invalid file type. Only PNG, JPG, JPEG and PDF are allowed.", "danger")
+            flash(
+                "Invalid file type. Allowed: PNG, JPG, JPEG, PDF.",
+                "danger"
+            )
 
             return render_template(
                 "upload.html",
                 filename=filename
             )
 
-        # Secure filename
         filename = secure_filename(uploaded_file.filename)
 
-        upload_dir = Path(
-            current_app.config["UPLOAD_FOLDER"]
-        )
+        upload_dir = Path(current_app.config["UPLOAD_FOLDER"])
 
         upload_dir.mkdir(
             parents=True,
