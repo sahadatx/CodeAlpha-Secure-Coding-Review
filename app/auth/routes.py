@@ -63,19 +63,16 @@ def login():
         username = request.form["username"]
         password = request.form["password"]
 
-        # ------------------------------------------------
-        # SQL Injection is intentionally kept here.
-        # It will be fixed in Lesson 8.3
-        # ------------------------------------------------
-        query = (
-            f"SELECT * FROM users "
-            f"WHERE username='{username}'"
-        )
-
         conn = get_connection()
         cursor = conn.cursor()
 
-        cursor.execute(query)
+        # ------------------------------------------
+        # Secure Query (SQL Injection Prevented)
+        # ------------------------------------------
+        cursor.execute(
+            "SELECT * FROM users WHERE username = ?",
+            (username,)
+        )
 
         user = cursor.fetchone()
 
@@ -83,7 +80,7 @@ def login():
 
         if user and check_password_hash(user["password"], password):
 
-            session["username"] = username
+            session["username"] = user["username"]
 
             flash("Login Successful!", "success")
 

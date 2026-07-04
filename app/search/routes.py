@@ -7,13 +7,9 @@ from flask import (
 from decorators import login_required
 from database import get_connection
 
-# Create Blueprint
 search_bp = Blueprint("search", __name__)
 
 
-# ======================================================
-# Search Users
-# ======================================================
 @search_bp.route("/search", methods=["GET", "POST"])
 @login_required
 def search():
@@ -22,21 +18,18 @@ def search():
 
     if request.method == "POST":
 
-        keyword = request.form.get("search", "")
+        keyword = request.form["search"]
 
         conn = get_connection()
         cursor = conn.cursor()
 
-        # ------------------------------------------------
-        # INTENTIONALLY VULNERABLE
-        # SQL Injection (For Secure Coding Review)
-        # ------------------------------------------------
-        query = (
-            f"SELECT * FROM users "
-            f"WHERE username LIKE '%{keyword}%'"
+        # ------------------------------------------
+        # Secure Query (SQL Injection Prevented)
+        # ------------------------------------------
+        cursor.execute(
+            "SELECT * FROM users WHERE username LIKE ?",
+            ("%" + keyword + "%",)
         )
-
-        cursor.execute(query)
 
         results = cursor.fetchall()
 
