@@ -1,16 +1,15 @@
-"""
-Database Connection
-"""
-
 import sqlite3
+from pathlib import Path
 
-DATABASE = "database.db"
+BASE_DIR = Path(__file__).resolve().parent
+
+DATABASE = BASE_DIR / "database.db"
 
 
 def get_connection():
 
-    connection = sqlite3.connect(DATABASE)
+    conn = sqlite3.connect(DATABASE)
 
-    connection.row_factory = sqlite3.Row
+    conn.row_factory = sqlite3.Row
 
-    return connection
+    return conn

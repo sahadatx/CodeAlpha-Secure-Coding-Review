@@ -1,38 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title>
-
-        {% block title %}
-
-        Secure Coding Review
-
-        {% endblock %}
-
-    </title>
-
-</head>
-
 <body>
 
-    <hr>
+<nav>
 
-    <h1>🛡️ CodeAlpha Secure Coding Review</h1>
+    <a href="/">Home</a>
 
-    <hr>
+    |
 
-    {% block content %}
+    <a href="/register">Register</a>
 
-    {% endblock %}
+    |
 
-    <hr>
+    <a href="/login">Login</a>
 
-    <p>Developed for CodeAlpha Internship</p>
+    |
+
+    <a href="/dashboard">Dashboard</a>
+
+    |
+
+    <a href="/logout">Logout</a>
+
+</nav>
+
+<hr>
+
+<h1>🛡️ CodeAlpha Secure Coding Review</h1>
+
+<hr>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+{% if messages %}
+
+<ul>
+
+{% for category, message in messages %}
+
+<li><strong>{{ category }}</strong> : {{ message }}</li>
+
+{% endfor %}
+
+</ul>
+
+{% endif %}
+
+{% endwith %}
+
+{% block content %}
+
+{% endblock %}
+
+<hr>
+
+<p>Developed for CodeAlpha Internship</p>
 
 </body>
-
-</html>
