@@ -311,4 +311,29 @@ The findings have been documented and mapped to the latest OWASP Top 10 and CWE 
 This review demonstrates a structured approach to secure code assessment and provides a foundation for improving the application's overall security posture.
 
 
+---
 
+# Tool Comparison
+
+| Vulnerability | Manual Review | Bandit | Semgrep |
+|---------------|---------------|---------|----------|
+| SQL Injection | ✅ | ✅ | ❌ |
+| Plain Text Password Storage | ✅ | ❌ | ❌ |
+| Information Disclosure | ✅ | ❌ | ❌ |
+| Unsafe File Upload | ✅ | ❌ | ❌ |
+| Broken Access Control | ✅ | ❌ | ❌ |
+| Hardcoded Secret Key | ✅ | ✅ | ❌ |
+| Missing Subresource Integrity (SRI) | ❌ | ❌ | ✅ |
+| Missing CSRF Protection (Django Rule) | ❌ | ❌ | ⚠️ False Positive |
+
+---
+
+# Final Observation
+
+The manual secure code review identified business logic and application-level security vulnerabilities that automated tools could not detect.
+
+Bandit successfully identified Python-specific security issues such as SQL query construction and hardcoded secrets.
+
+Semgrep detected template-related issues, including missing Subresource Integrity (SRI). It also reported a Django-specific CSRF rule, which is considered a false positive because this project uses Flask rather than Django.
+
+These results demonstrate that combining manual code review with multiple static analysis tools provides a more comprehensive security assessment than relying on a single technique.
