@@ -10,7 +10,7 @@ from admin.routes import admin_bp
 
 app = Flask(__name__)
 
-# Load all UPPERCASE variables from config.py
+# Load all configuration
 app.config.from_object(config)
 
 # Register Blueprints

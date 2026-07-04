@@ -38,8 +38,19 @@ def register():
         cursor = conn.cursor()
 
         cursor.execute(
-            "INSERT INTO users (username, password) VALUES (?, ?)",
-            (username, hashed_password)
+            """
+            INSERT INTO users (
+                username,
+                password,
+                role
+            )
+            VALUES (?, ?, ?)
+            """,
+            (
+                username,
+                hashed_password,
+                "user"
+            )
         )
 
         conn.commit()
@@ -79,6 +90,7 @@ def login():
         if user and check_password_hash(user["password"], password):
 
             session["username"] = user["username"]
+            session["role"] = user["role"]
 
             flash("Login successful!", "success")
 

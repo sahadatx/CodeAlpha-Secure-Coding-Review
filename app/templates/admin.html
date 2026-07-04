@@ -14,21 +14,27 @@ Admin Panel
 
         <hr>
 
+        <h4>
+            Welcome,
+            <span class="text-primary">
+                {{ username }}
+            </span>
+        </h4>
+
         <p>
-
-            Welcome
-
-            <strong>{{ username }}</strong>
-
+            Role:
+            <span class="badge bg-danger">
+                {{ role }}
+            </span>
         </p>
 
-        <div class="alert alert-danger">
+        <div class="alert alert-success">
 
-            <strong>Intentionally Vulnerable</strong>
+            <strong>Access Granted</strong>
 
             <br>
 
-            No Authorization Check Implemented.
+            You are authorized to access the Admin Panel.
 
         </div>
 

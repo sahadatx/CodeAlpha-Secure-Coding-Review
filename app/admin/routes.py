@@ -4,7 +4,10 @@ from flask import (
     session
 )
 
-from decorators import login_required
+from decorators import (
+    login_required,
+    admin_required
+)
 
 # Create Blueprint
 admin_bp = Blueprint("admin", __name__)
@@ -15,14 +18,11 @@ admin_bp = Blueprint("admin", __name__)
 # ======================================================
 @admin_bp.route("/admin")
 @login_required
+@admin_required
 def admin():
-
-    # ------------------------------------------------
-    # INTENTIONALLY VULNERABLE
-    # No Authorization Check
-    # ------------------------------------------------
 
     return render_template(
         "admin.html",
-        username=session["username"]
+        username=session["username"],
+        role=session["role"]
     )
