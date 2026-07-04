@@ -269,3 +269,46 @@ The identified issues primarily affect authentication, authorization, input vali
 
 
 
+---
+
+# Risk Assessment Matrix
+
+| Finding | Severity | Risk Level |
+|---------|----------|------------|
+| Plain Text Password Storage | High | High |
+| SQL Injection (Login) | Critical | Critical |
+| SQL Injection (Search) | Critical | Critical |
+| Information Disclosure | High | High |
+| Unsafe File Upload | High | High |
+| Broken Access Control | Critical | Critical |
+
+
+
+---
+
+# Remediation Plan
+
+| Finding | Recommended Fix | Priority |
+|---------|-----------------|----------|
+| Plain Text Password Storage | Hash passwords using Werkzeug Security or bcrypt. | High |
+| SQL Injection (Login) | Replace string concatenation with parameterized SQL queries. | Critical |
+| SQL Injection (Search) | Use prepared statements for search queries. | Critical |
+| Information Disclosure | Remove sensitive information from the profile page. | High |
+| Unsafe File Upload | Validate file type, extension, MIME type, and file size before saving uploads. | High |
+| Broken Access Control | Implement role-based access control (RBAC) for administrative pages. | Critical |
+
+
+---
+
+# Conclusion
+
+A manual secure code review was successfully completed for the **CodeAlpha Secure Coding Review** project.
+
+The assessment identified **six intentionally introduced security vulnerabilities** for educational purposes. These issues demonstrate common web application security risks, including insecure authentication, injection flaws, information disclosure, unrestricted file upload, and broken access control.
+
+The findings have been documented and mapped to the latest OWASP Top 10 and CWE standards. In the next phase of the project, static analysis tools such as **Bandit** and **Semgrep** will be used to validate the findings. Finally, all identified vulnerabilities will be remediated by applying secure coding best practices.
+
+This review demonstrates a structured approach to secure code assessment and provides a foundation for improving the application's overall security posture.
+
+
+
