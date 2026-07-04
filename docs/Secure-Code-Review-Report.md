@@ -223,3 +223,49 @@ Unauthorized users may gain access to administrative functionality.
 
 Implement role-based access control (RBAC) and verify user privileges before granting access to administrative resources.
 
+
+---
+
+# OWASP Top 10:2025 Mapping
+
+| Finding | OWASP Top 10:2025 | Description |
+|---------|-------------------|-------------|
+| Plain Text Password Storage | A04: Cryptographic Failures | Passwords are stored without hashing. |
+| SQL Injection (Login) | A05: Injection | User input is directly inserted into SQL queries. |
+| SQL Injection (Search) | A05: Injection | Search input is concatenated into SQL queries. |
+| Information Disclosure | A01: Broken Access Control | Sensitive user information is exposed to authenticated users. |
+| Unsafe File Upload | A02: Security Misconfiguration | File upload validation is not implemented. |
+| Broken Access Control | A01: Broken Access Control | Administrative functionality is accessible without proper authorization. |
+
+
+---
+
+# CWE Mapping
+
+| Finding | CWE ID | Description |
+|---------|---------|-------------|
+| Plain Text Password Storage | CWE-256 | Plaintext Storage of Password |
+| SQL Injection (Login) | CWE-89 | SQL Injection |
+| SQL Injection (Search) | CWE-89 | SQL Injection |
+| Information Disclosure | CWE-200 | Exposure of Sensitive Information |
+| Unsafe File Upload | CWE-434 | Unrestricted File Upload |
+| Broken Access Control | CWE-284 | Improper Access Control |
+
+
+---
+
+# Summary
+
+A total of **6 security vulnerabilities** were identified during the manual secure code review.
+
+| Severity | Count |
+|----------|------:|
+| Critical | 2 |
+| High | 4 |
+| Medium | 0 |
+| Low | 0 |
+
+The identified issues primarily affect authentication, authorization, input validation, and file handling. These vulnerabilities were intentionally introduced for educational purposes and will be remediated in the next phase of the project.
+
+
+
