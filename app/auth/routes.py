@@ -8,6 +8,11 @@ from flask import (
     flash
 )
 
+from werkzeug.security import (
+    generate_password_hash,
+    check_password_hash
+)
+
 from database import get_connection
 from decorators import login_required
 
@@ -26,16 +31,15 @@ def register():
         username = request.form["username"]
         password = request.form["password"]
 
+        # Secure Password Hashing
+        hashed_password = generate_password_hash(password)
+
         conn = get_connection()
         cursor = conn.cursor()
 
-        # ------------------------------------------------
-        # INTENTIONALLY INSECURE
-        # Plain Text Password Storage
-        # ------------------------------------------------
         cursor.execute(
             "INSERT INTO users (username, password) VALUES (?, ?)",
-            (username, password)
+            (username, hashed_password)
         )
 
         conn.commit()
@@ -60,13 +64,12 @@ def login():
         password = request.form["password"]
 
         # ------------------------------------------------
-        # INTENTIONALLY VULNERABLE
-        # SQL Injection (For Learning Purpose)
+        # SQL Injection is intentionally kept here.
+        # It will be fixed in Lesson 8.3
         # ------------------------------------------------
         query = (
             f"SELECT * FROM users "
-            f"WHERE username='{username}' "
-            f"AND password='{password}'"
+            f"WHERE username='{username}'"
         )
 
         conn = get_connection()
@@ -78,7 +81,7 @@ def login():
 
         conn.close()
 
-        if user:
+        if user and check_password_hash(user["password"], password):
 
             session["username"] = username
 
