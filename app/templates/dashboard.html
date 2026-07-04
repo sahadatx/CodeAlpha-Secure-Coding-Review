@@ -6,16 +6,45 @@ Dashboard
 
 {% block content %}
 
-<h2>Dashboard</h2>
+<div class="card shadow">
+
+<div class="card-body">
+
+<h2>
+
+Dashboard
+
+</h2>
 
 <hr>
 
-<h3>Welcome {{ username }}</h3>
+<h4>
 
-<p>You are logged in successfully.</p>
+Welcome,
 
-<br>
+<span class="text-primary">
 
-<a href="/logout">Logout</a>
+{{ username }}
+
+</span>
+
+</h4>
+
+<p>
+
+Authentication Successful.
+
+</p>
+
+<a href="/logout"
+class="btn btn-danger">
+
+Logout
+
+</a>
+
+</div>
+
+</div>
 
 {% endblock %}

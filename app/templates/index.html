@@ -8,38 +8,58 @@ Home
 
 {% block content %}
 
-<h2>Welcome</h2>
+<div class="card shadow">
+
+<div class="card-body">
+
+<h2>
+
+Welcome
+
+</h2>
 
 <p>
 
-This project is created for the CodeAlpha Cyber Security Internship.
+This vulnerable application is built for the
+
+<strong>
+
+CodeAlpha Cyber Security Internship.
+
+</strong>
 
 </p>
 
 <p>
 
-In the next lessons we will intentionally introduce vulnerabilities for learning secure code review.
+Later we will perform
+
+Manual Review
+
+Bandit Scan
+
+Semgrep Scan
+
+OWASP Analysis
 
 </p>
 
 <hr>
 
-<h3>Modules</h3>
+<a href="/register" class="btn btn-primary">
 
-<ul>
+Create Account
 
-    <li><a href="/register">Register</a></li>
+</a>
 
-    <li><a href="/login">Login</a></li>
+<a href="/login" class="btn btn-success">
 
-    <li>Search (Coming Soon)</li>
+Login
 
-    <li>Profile (Coming Soon)</li>
+</a>
 
-    <li>Admin Panel (Coming Soon)</li>
+</div>
 
-    <li>File Upload (Coming Soon)</li>
-
-</ul>
+</div>
 
 {% endblock %}
