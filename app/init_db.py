@@ -1,11 +1,16 @@
 import sqlite3
+from pathlib import Path
 
-DATABASE = "database.db"
+# Current folder (app/)
+BASE_DIR = Path(__file__).resolve().parent
 
-connection = sqlite3.connect(DATABASE)
+database_path = BASE_DIR / "database.db"
+schema_path = BASE_DIR / "schema.sql"
 
-with open("schema.sql") as f:
-    connection.executescript(f.read())
+connection = sqlite3.connect(database_path)
+
+with open(schema_path, "r") as file:
+    connection.executescript(file.read())
 
 connection.commit()
 connection.close()
