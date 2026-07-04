@@ -63,3 +63,32 @@ def routes(app):
             "search.html",
             results=results
         )
+
+
+    # ----------------------------
+    # Profile
+    # ----------------------------
+    @app.route("/profile")
+    @login_required
+    def profile():
+
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        # ----------------------------------------
+        # INTENTIONALLY VULNERABLE
+        # Information Disclosure
+        # ----------------------------------------
+        cursor.execute(
+            "SELECT * FROM users WHERE username=?",
+            (session["username"],)
+        )
+
+        user = cursor.fetchone()
+
+        conn.close()
+
+        return render_template(
+            "profile.html",
+            user=user
+        )
