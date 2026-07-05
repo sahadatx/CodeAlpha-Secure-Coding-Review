@@ -8,58 +8,57 @@
 
 <div class="row justify-content-center">
 
-    <div class="col-lg-6">
+    <div class="col-lg-7">
 
-        <div class="card shadow-lg">
+        <div class="card shadow-lg border-0">
 
             <div class="card-body text-center p-5">
 
                 <i class="bi bi-shield-lock-fill display-1 text-danger"></i>
 
-                <h1 class="display-4 mt-3">
-
+                <h1 class="display-3 fw-bold mt-3">
                     403
-
                 </h1>
 
-                <h3 class="mb-3">
-
+                <h2 class="fw-bold">
                     Access Denied
+                </h2>
 
-                </h3>
-
-                <p class="text-muted">
-
-                    Sorry <strong>{{ username }}</strong>,
-                    you do not have permission to access this page.
-
+                <p class="text-muted mb-4">
+                    Sorry <strong>{{ username }}</strong>, you do not have
+                    permission to access this page.
                 </p>
 
-                <p>
-
-                    Current Role:
-
-                    <span class="badge bg-secondary">
-
+                <p class="mb-4">
+                    Current Role
+                    <span class="badge bg-secondary ms-2">
                         {{ role }}
-
                     </span>
-
                 </p>
 
-                <div class="mt-4">
+                <div class="alert alert-warning text-start">
 
-                    <a
-                        href="/dashboard"
-                        class="btn btn-primary">
+                    <i class="bi bi-shield-exclamation"></i>
 
-                        <i class="bi bi-speedometer2"></i>
+                    <strong>RBAC Protection Active</strong>
 
-                        Back to Dashboard
+                    <hr>
 
-                    </a>
+                    Only users with the
+                    <strong>Admin</strong>
+                    role are authorized to access this page.
 
                 </div>
+
+                <a
+                    href="/dashboard"
+                    class="btn btn-primary btn-lg">
+
+                    <i class="bi bi-speedometer2"></i>
+
+                    Back to Dashboard
+
+                </a>
 
             </div>
 
