@@ -6,15 +6,17 @@ Dashboard
 
 {% block content %}
 
+<!-- ================= Dashboard Header ================= -->
+
 <div class="row">
 
     <div class="col-lg-12">
 
-        <div class="card shadow-lg mb-4">
+        <div class="card shadow-lg border-0 mb-4">
 
-            <div class="card-body">
+            <div class="card-body p-4">
 
-                <h2>
+                <h2 class="fw-bold">
 
                     <i class="bi bi-speedometer2 text-primary"></i>
 
@@ -38,10 +40,9 @@ Dashboard
 
                 </h4>
 
-                <p class="text-muted">
+                <p class="text-muted mb-0">
 
-                    Authentication successful. You are now logged into the
-                    Secure Coding Review application.
+                    Manage your account and explore the Secure Coding Review features.
 
                 </p>
 
@@ -53,13 +54,17 @@ Dashboard
 
 </div>
 
+<!-- ================= Feature Cards ================= -->
+
 <div class="row g-4">
+
+    <!-- Search -->
 
     <div class="col-md-4">
 
-        <div class="card shadow-sm h-100">
+        <div class="card shadow-sm border-0 h-100 feature-card">
 
-            <div class="card-body text-center">
+            <div class="card-body text-center p-4">
 
                 <i class="bi bi-search display-4 text-primary"></i>
 
@@ -77,7 +82,7 @@ Dashboard
 
                 <a
                     href="/search"
-                    class="btn btn-primary">
+                    class="btn btn-primary btn-lg px-4">
 
                     Open
 
@@ -89,11 +94,13 @@ Dashboard
 
     </div>
 
+    <!-- Upload -->
+
     <div class="col-md-4">
 
-        <div class="card shadow-sm h-100">
+        <div class="card shadow-sm border-0 h-100 feature-card">
 
-            <div class="card-body text-center">
+            <div class="card-body text-center p-4">
 
                 <i class="bi bi-cloud-upload display-4 text-success"></i>
 
@@ -111,7 +118,7 @@ Dashboard
 
                 <a
                     href="/upload"
-                    class="btn btn-success">
+                    class="btn btn-success btn-lg px-4">
 
                     Upload File
 
@@ -123,11 +130,13 @@ Dashboard
 
     </div>
 
+    <!-- Profile -->
+
     <div class="col-md-4">
 
-        <div class="card shadow-sm h-100">
+        <div class="card shadow-sm border-0 h-100 feature-card">
 
-            <div class="card-body text-center">
+            <div class="card-body text-center p-4">
 
                 <i class="bi bi-person-circle display-4 text-warning"></i>
 
@@ -145,7 +154,7 @@ Dashboard
 
                 <a
                     href="/profile"
-                    class="btn btn-warning text-dark">
+                    class="btn btn-warning btn-lg text-dark px-4">
 
                     View Profile
 
@@ -159,65 +168,47 @@ Dashboard
 
 </div>
 
+<!-- ================= Security Status ================= -->
+
 <div class="row mt-4">
 
     <div class="col-lg-12">
 
-        <div class="card shadow-sm">
+        <div class="card shadow-sm border-0">
 
-            <div class="card-body">
+            <div class="card-body p-4">
 
-                <h4>
+                <h3>
 
-                    <i class="bi bi-check-circle-fill text-success"></i>
+                    <i class="bi bi-shield-check text-success"></i>
 
                     Security Status
 
-                </h4>
+                </h3>
 
                 <hr>
 
-                <div class="row text-center">
+                <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
 
-                    <div class="col-md-3">
+                    <span class="badge bg-success fs-6 px-4 py-3">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Password Hashing
+                    </span>
 
-                        <h5 class="text-success">
+                    <span class="badge bg-success fs-6 px-4 py-3">
+                        <i class="bi bi-check-circle-fill"></i>
+                        SQL Injection Prevention
+                    </span>
 
-                            ✔ Password Hashing
+                    <span class="badge bg-success fs-6 px-4 py-3">
+                        <i class="bi bi-check-circle-fill"></i>
+                        Secure File Upload
+                    </span>
 
-                        </h5>
-
-                    </div>
-
-                    <div class="col-md-3">
-
-                        <h5 class="text-success">
-
-                            ✔ SQL Injection Prevention
-
-                        </h5>
-
-                    </div>
-
-                    <div class="col-md-3">
-
-                        <h5 class="text-success">
-
-                            ✔ Secure File Upload
-
-                        </h5>
-
-                    </div>
-
-                    <div class="col-md-3">
-
-                        <h5 class="text-success">
-
-                            ✔ RBAC Enabled
-
-                        </h5>
-
-                    </div>
+                    <span class="badge bg-success fs-6 px-4 py-3">
+                        <i class="bi bi-check-circle-fill"></i>
+                        RBAC Enabled
+                    </span>
 
                 </div>
 
@@ -226,20 +217,6 @@ Dashboard
         </div>
 
     </div>
-
-</div>
-
-<div class="text-center mt-5">
-
-    <a
-        href="/logout"
-        class="btn btn-danger btn-lg">
-
-        <i class="bi bi-box-arrow-right"></i>
-
-        Logout
-
-    </a>
 
 </div>
 

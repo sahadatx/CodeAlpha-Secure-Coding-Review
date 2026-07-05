@@ -10,21 +10,23 @@ Secure File Upload
 
     <div class="col-lg-6">
 
-        <div class="card shadow-lg">
+        <div class="card shadow-lg border-0">
 
-            <div class="card-body">
+            <div class="card-body p-5">
+
+                <!-- Header -->
 
                 <div class="text-center mb-4">
 
-                    <i class="bi bi-cloud-arrow-up-fill display-4 text-success"></i>
+                    <i class="bi bi-cloud-arrow-up-fill display-3 text-success"></i>
 
-                    <h2 class="mt-3 fw-bold">
+                    <h1 class="fw-bold mt-3">
 
                         Secure File Upload
 
-                    </h2>
+                    </h1>
 
-                    <p class="text-muted">
+                    <p class="lead text-muted">
 
                         Upload files securely with validation and extension restrictions.
 
@@ -32,37 +34,70 @@ Secure File Upload
 
                 </div>
 
+                <!-- Upload Form -->
+
                 <form
                     method="POST"
                     enctype="multipart/form-data">
 
                     <div class="mb-4">
 
-                        <label class="form-label">
+                        <label class="form-label fw-bold">
 
                             Select File
 
                         </label>
 
                         <input
-                            class="form-control"
+                            class="form-control form-control-lg"
                             type="file"
                             name="file"
                             required>
 
-                        <div class="form-text">
+                    </div>
 
-                            Allowed Types:
-                            <strong>PDF, PNG, JPG, JPEG</strong>
+                    <!-- Allowed Types -->
 
-                        </div>
+                    <div class="mb-4">
+
+                        <p class="fw-semibold mb-2">
+
+                            Allowed File Types
+
+                        </p>
+
+                        <span class="badge bg-danger px-3 py-2 me-2 mb-2">
+
+                            PDF
+
+                        </span>
+
+                        <span class="badge bg-success px-3 py-2 me-2 mb-2">
+
+                            PNG
+
+                        </span>
+
+                        <span class="badge bg-primary px-3 py-2 me-2 mb-2">
+
+                            JPG
+
+                        </span>
+
+                        <span class="badge bg-warning text-dark px-3 py-2 mb-2">
+
+                            JPEG
+
+                        </span>
 
                     </div>
+
+                    <!-- Upload Button -->
 
                     <div class="d-grid">
 
                         <button
-                            class="btn btn-success btn-lg"
+                            class="btn btn-success btn-lg py-3"
                             type="submit">
 
                             <i class="bi bi-upload"></i>
@@ -75,23 +110,41 @@ Secure File Upload
 
                 </form>
 
+                <!-- Success -->
+
                 {% if filename %}
 
-                <hr>
+                <hr class="my-4">
 
-                <div class="alert alert-success mt-4">
+                <div class="alert alert-success">
 
-                    <i class="bi bi-check-circle-fill"></i>
+                    <h5 class="mb-3">
 
-                    File uploaded successfully.
+                        <i class="bi bi-check-circle-fill"></i>
 
-                    <br><br>
+                        Upload Successful
+
+                    </h5>
+
+                    <p class="mb-2">
+
+                        Your file has been uploaded successfully.
+
+                    </p>
 
                     <strong>
 
-                        {{ filename }}
+                        Uploaded File
 
                     </strong>
+
+                    <br>
+
+                    <span class="badge bg-dark px-3 py-2 mt-2">
+
+                        {{ filename }}
+
+                    </span>
 
                 </div>
 

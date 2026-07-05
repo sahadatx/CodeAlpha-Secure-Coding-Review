@@ -237,3 +237,178 @@ a:hover{
     }
 
 }
+
+
+/* ==========================
+   Feature Card Animation
+========================== */
+
+.feature-card{
+    transition: all .3s ease;
+    border-radius: 15px;
+}
+
+.feature-card:hover{
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 18px 40px rgba(0,0,0,.15);
+
+}
+
+.feature-card{
+
+    min-height: 290px;
+
+}
+
+.card-body{
+
+    padding:2rem;
+
+}
+
+/* Active Navbar */
+
+.nav-link.active{
+
+    color:#0dcaf0 !important;
+
+    font-weight:700;
+
+}
+
+/* Username Badge */
+
+.badge{
+
+    font-size:.85rem;
+
+}
+
+/* Feature Card */
+
+.feature-card{
+
+    min-height:300px;
+
+    border-radius:16px;
+
+    transition:.3s ease;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.nav-link.active{
+
+    color:#0dcaf0 !important;
+
+    font-weight:700;
+
+    border-bottom:2px solid #0dcaf0;
+
+}
+
+.feature-card{
+
+    min-height:300px;
+
+    border-radius:16px;
+
+    transition:.3s ease;
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.feature-card i{
+
+    transition:.3s;
+
+}
+
+.feature-card:hover i{
+
+    transform:scale(1.15);
+
+}
+.form-control{
+    padding:14px 16px;
+    border-radius:12px;
+}
+
+.btn-success{
+
+    transition:.3s;
+
+}
+
+.btn-success:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 25px rgba(25,135,84,.3);
+
+}
+.card{
+
+    border-radius:22px;
+
+}
+
+.form-control:focus{
+
+    border-color:#198754;
+
+    box-shadow:0 0 0 .20rem rgba(25,135,84,.15);
+
+}
+
+.input-group .btn{
+
+    border-radius:0 10px 10px 0;
+
+}
+.btn-success{
+    transition:all .3s ease;
+}
+
+.btn-success:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(25,135,84,.35);
+}
+
+.input-group-text{
+    background:#f8f9fa;
+    border-color:#ced4da;
+}
+
+.feature-card{
+    transition: all .3s ease;
+}
+
+.feature-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.15);
+}
+
+.dashboard-card .btn{
+    min-width:180px;
+}
+
+.badge{
+    border-radius:12px;
+}

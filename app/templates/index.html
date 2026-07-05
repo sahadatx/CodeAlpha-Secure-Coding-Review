@@ -10,11 +10,15 @@ Home
 
     <div class="col-lg-10">
 
-        <div class="card shadow-lg">
+        <div class="card shadow-lg border-0">
 
             <div class="card-body text-center p-5">
 
+                <!-- Hero Icon -->
+
                 <i class="bi bi-shield-lock-fill display-1 text-primary"></i>
+
+                <!-- Title -->
 
                 <h1 class="fw-bold mt-4">
 
@@ -22,7 +26,17 @@ Home
 
                 </h1>
 
-                <p class="lead text-muted mt-3">
+                <!-- Hero Badge -->
+
+                <span class="badge bg-primary fs-6 px-3 py-2 mt-2">
+
+                    Flask • Python • Secure Coding
+
+                </span>
+
+                <!-- Description -->
+
+                <p class="lead text-muted mt-4">
 
                     A Flask-based web application developed to demonstrate
                     secure code review, vulnerability assessment,
@@ -32,11 +46,15 @@ Home
 
                 <hr class="my-4">
 
-                <div class="row g-4 mt-2">
+                <!-- ==========================================
+                            Feature Cards
+                =========================================== -->
+
+                <div class="row g-4">
 
                     <div class="col-md-3">
 
-                        <div class="card h-100 border-0 bg-light">
+                        <div class="card feature-card h-100 border-0 bg-light shadow-sm">
 
                             <div class="card-body">
 
@@ -50,7 +68,8 @@ Home
 
                                 <p class="text-muted">
 
-                                    Identify common security vulnerabilities through manual inspection.
+                                    Identify common security vulnerabilities
+                                    through manual inspection.
 
                                 </p>
 
@@ -62,7 +81,7 @@ Home
 
                     <div class="col-md-3">
 
-                        <div class="card h-100 border-0 bg-light">
+                        <div class="card feature-card h-100 border-0 bg-light shadow-sm">
 
                             <div class="card-body">
 
@@ -76,7 +95,8 @@ Home
 
                                 <p class="text-muted">
 
-                                    Static analysis for identifying Python security issues.
+                                    Static analysis for identifying
+                                    Python security issues.
 
                                 </p>
 
@@ -88,7 +108,7 @@ Home
 
                     <div class="col-md-3">
 
-                        <div class="card h-100 border-0 bg-light">
+                        <div class="card feature-card h-100 border-0 bg-light shadow-sm">
 
                             <div class="card-body">
 
@@ -102,7 +122,8 @@ Home
 
                                 <p class="text-muted">
 
-                                    Detect security vulnerabilities using semantic code analysis.
+                                    Detect security vulnerabilities using
+                                    semantic code analysis.
 
                                 </p>
 
@@ -114,7 +135,7 @@ Home
 
                     <div class="col-md-3">
 
-                        <div class="card h-100 border-0 bg-light">
+                        <div class="card feature-card h-100 border-0 bg-light shadow-sm">
 
                             <div class="card-body">
 
@@ -128,7 +149,8 @@ Home
 
                                 <p class="text-muted">
 
-                                    Apply secure coding best practices and verify fixes.
+                                    Apply secure coding best practices
+                                    and verify fixes.
 
                                 </p>
 
@@ -140,11 +162,17 @@ Home
 
                 </div>
 
+                <!-- ==========================================
+                            Action Buttons
+                =========================================== -->
+
                 <div class="mt-5">
+
+                    {% if "username" not in session %}
 
                     <a
                         href="/register"
-                        class="btn btn-primary btn-lg me-3">
+                        class="btn btn-primary btn-lg px-4 me-3">
 
                         <i class="bi bi-person-plus-fill"></i>
 
@@ -154,13 +182,81 @@ Home
 
                     <a
                         href="/login"
-                        class="btn btn-success btn-lg">
+                        class="btn btn-success btn-lg px-4">
 
                         <i class="bi bi-box-arrow-in-right"></i>
 
                         Login
 
                     </a>
+
+                    {% else %}
+
+                    <a
+                        href="/dashboard"
+                        class="btn btn-primary btn-lg px-5 py-3">
+
+                        <i class="bi bi-speedometer2"></i>
+
+                        Go to Dashboard
+
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- ==========================================
+                            Technology Stack
+                =========================================== -->
+
+                <div class="mt-5">
+
+                    <h6 class="text-uppercase text-muted mb-4">
+
+                        Technology Stack
+
+                    </h6>
+
+                    <div class="d-flex justify-content-center flex-wrap">
+
+                        <span class="badge bg-dark px-3 py-2 me-2 mb-2">
+
+                            Python
+
+                        </span>
+
+                        <span class="badge bg-primary px-3 py-2 me-2 mb-2">
+
+                            Flask
+
+                        </span>
+
+                        <span class="badge bg-success px-3 py-2 me-2 mb-2">
+
+                            SQLite
+
+                        </span>
+
+                        <span class="badge bg-danger px-3 py-2 me-2 mb-2">
+
+                            Bandit
+
+                        </span>
+
+                        <span class="badge bg-warning text-dark px-3 py-2 me-2 mb-2">
+
+                            Semgrep
+
+                        </span>
+
+                        <span class="badge bg-info text-dark px-3 py-2 mb-2">
+
+                            Bootstrap 5
+
+                        </span>
+
+                    </div>
 
                 </div>
 

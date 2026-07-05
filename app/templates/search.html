@@ -10,31 +10,35 @@ User Search
 
     <div class="col-lg-10">
 
-        <div class="card shadow-lg">
+        <div class="card shadow-lg border-0">
 
-            <div class="card-body">
+            <div class="card-body p-5">
 
-                <div class="text-center mb-4">
+                <!-- Hero -->
 
-                    <i class="bi bi-search display-4 text-primary"></i>
+                <div class="text-center mb-5">
 
-                    <h2 class="mt-3 fw-bold">
+                    <i class="bi bi-search display-2 text-primary"></i>
+
+                    <h1 class="fw-bold mt-3">
 
                         User Search
 
-                    </h2>
+                    </h1>
 
-                    <p class="text-muted">
+                    <p class="lead text-muted">
 
-                        Search registered users securely using parameterized queries.
+                        Search registered users securely using parameterized SQL queries.
 
                     </p>
 
                 </div>
 
+                <!-- Search Form -->
+
                 <form method="POST">
 
-                    <div class="input-group mb-4">
+                    <div class="input-group input-group-lg mb-4">
 
                         <span class="input-group-text">
 
@@ -47,10 +51,11 @@ User Search
                             class="form-control"
                             name="search"
                             placeholder="Enter username..."
+                            autocomplete="off"
                             required>
 
                         <button
-                            class="btn btn-primary"
+                            class="btn btn-primary px-4"
                             type="submit">
 
                             <i class="bi bi-search"></i>
@@ -63,11 +68,23 @@ User Search
 
                 </form>
 
+                <!-- Results -->
+
                 {% if results %}
+
+                <div class="mb-3">
+
+                    <span class="badge bg-success px-3 py-2">
+
+                        {{ results|length }} Result(s) Found
+
+                    </span>
+
+                </div>
 
                 <div class="table-responsive">
 
-                    <table class="table table-hover align-middle">
+                    <table class="table table-hover table-bordered align-middle">
 
                         <thead class="table-dark">
 
@@ -91,15 +108,31 @@ User Search
 
                                 <td>{{ user.id }}</td>
 
-                                <td>{{ user.username }}</td>
+                                <td>
+
+                                    <strong>{{ user.username }}</strong>
+
+                                </td>
 
                                 <td>
 
-                                    <span class="badge bg-primary">
+                                    {% if user.role == "admin" %}
 
-                                        {{ user.role }}
+                                    <span class="badge bg-danger px-3 py-2">
+
+                                        Admin
 
                                     </span>
+
+                                    {% else %}
+
+                                    <span class="badge bg-primary px-3 py-2">
+
+                                        User
+
+                                    </span>
+
+                                    {% endif %}
 
                                 </td>
 
@@ -117,9 +150,9 @@ User Search
 
                     {% if request.method == "POST" %}
 
-                    <div class="alert alert-warning">
+                    <div class="alert alert-warning mt-3">
 
-                        <i class="bi bi-exclamation-circle"></i>
+                        <i class="bi bi-exclamation-circle-fill"></i>
 
                         No matching users found.
 
